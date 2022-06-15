@@ -1,4 +1,4 @@
-# predictive-cooking
+# predictive-recipes
 Copyright © 2022 All Rights Reserved
 
 CSCI 49900 - Group 2 

@@ -1,9 +1,13 @@
 import requests
 import json
 
+
+##IMPORTANT FOR LOCAL RUN
+##Get your rapid api key and host from https://rapidapi.com/spoonacular/api/recipe-food-nutrition/
+##After logging in with GitHub click the subscribe to test and the free option
+##The header parameters are in any of the sample requests
 headers = {
-	"X-RapidAPI-Key": "0369576e5bmsh492d05bb416cdb5p10406fjsn243cabb13c2e",
-	"X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+
 }
 
 

@@ -38,11 +38,12 @@ data = response.json()
 
 ##Saves steps in the form steps: {'number': , 'step':...}
 steps = data[0]["steps"]
-print(steps)
 one = steps[0]["step"]
 textquery = ""
 for i in steps:
     textquery = textquery + i["step"] + "\n"
+print(textquery)
+
 ##-----------------------------------------------Meaningcloud API Call---------------------------------------------------
 payload={
     'key': '8b38fc74a8a6e9be5b5eef2c7a768fd9',

@@ -18,40 +18,33 @@ url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/compl
 querystring = {"query":"pasta"}
 
 
-##API GET request to Recipe Search for recipes
+##Inital API GET request to Recipe Search for list of  recipes
 response = requests.request("GET", url, headers=headers, params=querystring)
 
 
 ##Convert json to a dict so it's parseable
 data = response.json()
 
-##Gets id of recipe
-ids = data['results'][1]['id']
+##Gets ids of recipes and stores them in idlist
+idlist = []
+allSteps = ""
+for i in range(3):
+    ids = data['results'][i]['id']
+    idlist.append(str(ids))
 
-##Makes another API request to Analyzed Instructions endpoint to get steps
-id = str(ids)
-url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/analyzedInstructions"
-querystring = {"stepBreakdown":"true"}
-response = requests.request("GET", url, headers=headers, params=querystring)
+##For each id: call analyzedInstructions endpoint and store just the steps seperated by "/n" in allSteps
+for i in range(len(idlist)):
+    url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + idlist[i] + "/analyzedInstructions"
+    querystring = {"stepBreakdown": "true"}
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    datastep = response.json()
+    steps = datastep[0]["steps"]
+    for j in steps:
+        allSteps = allSteps + j["step"] + "\n"
 
-data = response.json()
+print(allSteps)
 
-##Saves steps in the form steps: {'number': , 'step':...}
-steps = data[0]["steps"]
-one = steps[0]["step"]
-textquery = ""
-for i in steps:
-    textquery = textquery + i["step"] + "\n"
-print(textquery)
 
-##-----------------------------------------------Meaningcloud API Call---------------------------------------------------
-payload={
-    'key': '8b38fc74a8a6e9be5b5eef2c7a768fd9',
-    'lang': 'ENGLISH',
-    'txt': 'YOUR TEXT HERE'
-}
-
-##response = requests.post(url, data=payload)
 
 
 

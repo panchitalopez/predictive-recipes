@@ -16,7 +16,7 @@ headers = {
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
 ##query for the GET Search Recipes request
 querystring = {"query":"pasta"}
-
+##                         ^ modify this parameter
 
 ##Inital API GET request to Recipe Search for list of  recipes
 response = requests.request("GET", url, headers=headers, params=querystring)

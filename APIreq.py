@@ -15,7 +15,10 @@ headers = {
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch"
 ##query for the GET Search Recipes request
-querystring = {"query":"pasta"}
+querystring = {"query":"pasta",
+               "includeIngredients":"tomato",
+               "sort":"popularity"
+               }
 ##                         ^ modify this parameter
 
 ##Inital API GET request to Recipe Search for list of  recipes

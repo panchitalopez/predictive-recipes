@@ -16,7 +16,7 @@ search = input("Enter a food or recipe")
 ingredients = input("Enter ingredients seperated by ','")
 idNum = int(input("Enter number of recipes to output."))
 
-while(idNum >= 10):
+while(idNum > 10):
     idNum = int(input("Enter number of recipes to output."))
 
 querystring = {"query":search,

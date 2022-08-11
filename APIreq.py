@@ -6,7 +6,7 @@ import requests
 ## After logging in with GitHub click the subscribe to test and the free option
 ## The header parameters are in any of the sample requests, paste key in the quotes
 headers = {
-	"X-RapidAPI-Key": "0369576e5bmsh492d05bb416cdb5p10406fjsn243cabb13c2e",
+	"X-RapidAPI-Key": "INSERT-TOKEN-HERE",
 	"X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 

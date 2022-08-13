@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
     return (
         <header> 
-            <h1>Ingredients List</h1>
+            <h1>Predictive Recipe Model</h1>
         </header>
     );
 };

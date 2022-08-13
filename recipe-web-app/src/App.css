@@ -2,6 +2,7 @@
   text-align: center;
   font-weight: Bold;
   font-size: 18px;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .App-header {
@@ -17,4 +18,36 @@ color: white;
 
 .App-link {
 color: #61dafb;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+
+  padding: 1em;
+  border: solid;
+  border-style: dashed solid;
+  border-color: darkcyan;
+}
+
+.input-container {
+  flex: 1;
+
+  padding: 1em;
+  border: solid;
+  border-style: dashed solid;
+  border-color: darkcyan;
+}
+
+.input-steps input {
+  width: 80%;
+  height: 150px;
+  margin-left: 0;
+  box-sizing: border-box;
+
+  padding: 0.4em 0.4em 0.4em 0;
+
 }

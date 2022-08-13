@@ -5,8 +5,8 @@ Importing necessary components:
 
  import React from 'react';
  import IngredientToAdd from './IngredientToAdd';
-  
- // maps over list(object) to return individual components, like the actual ingredient on the list 
+
+ // maps over list(object) to return individual components, like the actual ingredient on the list
  const IngredientToAddList = ({ingredList}) => {
     return (
         <div>

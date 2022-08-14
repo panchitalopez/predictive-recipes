@@ -33,6 +33,14 @@ function App() {
         setIngredList(copy);
     }
 
+    // const getSteps = (options) => {
+    //     axios.request(options).then(function (response) {
+    //         console.log(response.data);
+    //     }).catch(function (error) {
+    //         console.error(error);
+    //     });
+    // }
+
 // useState returns a stateful value (a component that holds some state)
 // const [variable that holds the state, method used to update the state]
 
@@ -69,28 +77,28 @@ function App() {
                     {/*<RecipeForm />*/}
                     <form onSubmit={handleSubmit}>
                         <h2>Recipe Form</h2>
-                            <label>Recipe Name
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Enter recipe name"
-                                    defaultValue={recipe.name}
-                                    onChange={handleChange}
-                                />
-                            </label>
-                            <label>Recipe Ingredients
-                                <input
-                                    type="text"
-                                    name="ingredients"
-                                    placeholder="Enter ingredient list"
-                                    defaultValue={recipe.ingredients}
-                                    onChange={handleChange}
-                                />
-                            </label>
-                            <button onClick={handleSubmit}>Submit Recipe Info</button>
-                        </form>
-                        <IngredientForm addIngredient={addIngredient}/>
-                        <IngredientToAddList ingredList = {ingredList}/>
+                        <label>Recipe Name
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Enter recipe name"
+                                defaultValue={recipe.name}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <label>Recipe Ingredients
+                            <input
+                                type="text"
+                                name="ingredients"
+                                placeholder="Enter ingredient list"
+                                defaultValue={recipe.ingredients}
+                                onChange={handleChange}
+                            />
+                        </label>
+                        <button onClick={handleSubmit}>Submit Recipe Info</button>
+                    </form>
+                    <IngredientForm addIngredient={addIngredient}/>
+                    <IngredientToAddList ingredList = {ingredList}/>
                 </div>
                 <div className = "input-container">
                     <div className ="input-steps">

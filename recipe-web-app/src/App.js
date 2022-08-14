@@ -42,25 +42,64 @@ function App() {
 
 // This is what will be displayed in the web browser: 
     const [ingredList, setIngredList] = useState(data);
+    const [recipe, setRecipe] = useState({
+        name: "",
+        ingredients: ""
+    });
+
+    const handleChange = (event) => {
+        const value = event.target.value;
+        setRecipe({ ...recipe, [event.target.name]: value });
+    };
+
+    // On submission, creates a new object of type RecipeInput with the parameters for name and ingredients, then builds a Query using said parameters and calls API
+    const handleSubmit = (event) => {
+        // prevents the submit button from refreshing the page
+        event.preventDefault();
+        console.log(recipe);
+        let recipeSearch = new RecipeInput(recipe.name, recipe.ingredients);
+        console.log(recipeSearch.buildQuery());
+    };
+
     return (
         <div className="App">
-
             <Header/>
-            <div class ="row">
-                <div class = "col">
-                    <RecipeForm />
-                    <IngredientForm addIngredient={addIngredient}/>
-                    <IngredientToAddList ingredList = {ingredList}/>
-
+            <div className ="row">
+                <div className = "col">
+                    {/*<RecipeForm />*/}
+                    <form onSubmit={handleSubmit}>
+                        <h2>Recipe Form</h2>
+                            <label>Recipe Name
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Enter recipe name"
+                                    defaultValue={recipe.name}
+                                    onChange={handleChange}
+                                />
+                            </label>
+                            <label>Recipe Ingredients
+                                <input
+                                    type="text"
+                                    name="ingredients"
+                                    placeholder="Enter ingredient list"
+                                    defaultValue={recipe.ingredients}
+                                    onChange={handleChange}
+                                />
+                            </label>
+                            <button onClick={handleSubmit}>Submit Recipe Info</button>
+                        </form>
+                        <IngredientForm addIngredient={addIngredient}/>
+                        <IngredientToAddList ingredList = {ingredList}/>
                 </div>
-                <div class = "input-container">
-                    <div class ="input-steps">
-                    <input
-                        type="text"
-                        id = "input"
-                        placeholder = "Start typing recipe here..."
-                    />
-                </div>
+                <div className = "input-container">
+                    <div className ="input-steps">
+                        <input
+                            type="text"
+                            id = "input"
+                            placeholder = "Start typing recipe here..."
+                        />
+                    </div>
                 </div>
             </div>
         </div>

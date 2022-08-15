@@ -35,17 +35,13 @@ class RecipeInput {
 
     // Function to build searchquery string
     buildQuery() {
-        let query = {
-            query:this.name,
-            includeIngredients:this.ingredients,
-            sort:"popularity",
-            number: '5'
-        };
         const options = {
             method: 'GET',
             url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch',
             params: {
-                query
+                query:this.name,
+                includeIngredients:this.ingredients,
+                sort:"popularity"
             },
             headers: {
                 "X-RapidAPI-Key": "0369576e5bmsh492d05bb416cdb5p10406fjsn243cabb13c2e",

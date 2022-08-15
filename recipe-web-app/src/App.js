@@ -18,6 +18,7 @@ import IngredientToAddList from './IngredientToAddList';
 import IngredientForm from './IngredientForm';
 import RecipeInput from "./RecipeInput";
 
+const axios = require("axios");
 function App() {
 
     /*
@@ -33,13 +34,48 @@ function App() {
         setIngredList(copy);
     }
 
-    // const getSteps = (options) => {
-    //     axios.request(options).then(function (response) {
-    //         console.log(response.data);
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-    // }
+
+    // First API call to complexSearch to get array of food items
+    // const callAPI = (options) => {
+    function callAPI(options) {
+        var id_List = "";
+        axios.request(options).then(function (response) {
+            console.log(response.data.results);
+            for (let i = 0; i < response.data.results.length; i++) {
+                id_List = id_List.concat(" ", String(response.data.results[i].id));
+            }
+            setIdList(id_List);
+            console.log(id_List)
+            return id_List;
+        }).catch(function (error) {
+            console.error(error);
+        });
+        return id_List;
+    }
+    function getAllSteps(id) {
+        let aUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/'+ id +'/analyzedInstructions';
+        const options2 = {
+            method: 'GET',
+            url: aUrl,
+            params: {stepBreakdown: 'true'},
+            headers: {
+                "X-RapidAPI-Key": "0369576e5bmsh492d05bb416cdb5p10406fjsn243cabb13c2e",
+                "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+            }
+        };
+        var steps = "";
+        console.log(options2);
+        axios.request(options2).then(function (response) {
+            console.log(response.data[0].steps);
+            for(let i =0; i < response.data[0].steps.length; i++) {
+                steps = steps.concat(response.data[0].steps[i].step);
+            }
+            return steps;
+        }).catch(function (error) {
+            console.error(error);
+        });
+        return steps;
+    }
 
 // useState returns a stateful value (a component that holds some state)
 // const [variable that holds the state, method used to update the state]
@@ -50,6 +86,7 @@ function App() {
 
 // This is what will be displayed in the web browser: 
     const [ingredList, setIngredList] = useState(data);
+    const [idList, setIdList] = useState([]);
     const [recipe, setRecipe] = useState({
         name: "",
         ingredients: ""
@@ -66,7 +103,26 @@ function App() {
         event.preventDefault();
         console.log(recipe);
         let recipeSearch = new RecipeInput(recipe.name, recipe.ingredients);
-        console.log(recipeSearch.buildQuery());
+        let query = recipeSearch.buildQuery()
+        console.log(query);
+
+        var id_List = "";
+        var ArrayIDs;
+        axios.request(query).then(function (response) {
+            console.log(response.data.results);
+            for (let i = 0; i < response.data.results.length; i++) {
+                id_List = id_List.concat(" ", String(response.data.results[i].id));
+            }
+            id_List = id_List.slice(1);
+            ArrayIDs = id_List.split(" ");
+            setIdList(ArrayIDs);
+        }).catch(function (error) {
+            console.error(error);
+        });
+        let idListClone = JSON.parse(JSON.stringify({idList}));
+        console.log(idListClone.idList);
+        console.log(getAllSteps(idListClone.idList[0]));
+        // Query the API to get a String of food IDs
     };
 
     return (

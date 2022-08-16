@@ -111,7 +111,7 @@ function App() {
         axios.request(query).then(function (response) {
             console.log(response.data.results);
             for (let i = 0; i < response.data.results.length; i++) {
-                id_List = id_List.concat(" ", String(response.data.results[i].id));
+                id_List = id_List.concat(" ", String(response.data.results[i].sourceUrl));
             }
             id_List = id_List.slice(1);
             ArrayIDs = id_List.split(" ");
@@ -121,7 +121,7 @@ function App() {
         });
         let idListClone = JSON.parse(JSON.stringify({idList}));
         console.log(idListClone.idList);
-        console.log(getAllSteps(idListClone.idList[0]));
+        // console.log(getAllSteps(idListClone.idList[0]));
         // Query the API to get a String of food IDs
     };
 
@@ -142,16 +142,18 @@ function App() {
                                 onChange={handleChange}
                             />
                         </label>
-                        <label>Recipe Ingredients
-                            <input
-                                type="text"
-                                name="ingredients"
-                                placeholder="Enter ingredient list"
-                                defaultValue={recipe.ingredients}
-                                onChange={handleChange}
-                            />
-                        </label>
-                        <button onClick={handleSubmit}>Submit Recipe Info</button>
+                        <div>
+                            <label>Recipe Ingredients
+                                <input
+                                    type="text"
+                                    name="ingredients"
+                                    placeholder="Enter ',' separated list"
+                                    defaultValue={recipe.ingredients}
+                                    onChange={handleChange}
+                                />
+                            </label>
+                            <button onClick={handleSubmit}>Submit Recipe Info</button>
+                        </div>
                     </form>
                     <IngredientForm addIngredient={addIngredient}/>
                     <IngredientToAddList ingredList = {ingredList}/>

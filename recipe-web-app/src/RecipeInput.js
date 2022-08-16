@@ -41,6 +41,7 @@ class RecipeInput {
             params: {
                 query:this.name,
                 includeIngredients:this.ingredients,
+                addRecipeInformation: 'true',
                 sort:"popularity"
             },
             headers: {

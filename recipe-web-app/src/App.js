@@ -65,11 +65,12 @@ function App() {
         };
         var steps = "";
         console.log(options2);
-        axios.request(options2).then(function (response) {
-            console.log(response.data[0].steps);
-            for(let i =0; i < response.data[0].steps.length; i++) {
-                steps = steps.concat(response.data[0].steps[i].step);
+        axios.request(options2).then(function (response2) {
+            console.log(response2.data[0].steps);
+            for(let i =0; i < response2.data[0].steps.length; i++) {
+                steps = steps.concat(response2.data[0].steps[i].step);
             }
+            console.log(steps);
             return steps;
         }).catch(function (error) {
             console.error(error);
@@ -108,10 +109,12 @@ function App() {
 
         var id_List = "";
         var ArrayIDs;
+        // Query the API to get a String of food IDs
         axios.request(query).then(function (response) {
             console.log(response.data.results);
             for (let i = 0; i < response.data.results.length; i++) {
-                id_List = id_List.concat(" ", String(response.data.results[i].sourceUrl));
+                console.log(response.data.results[i].sourceUrl);
+                id_List = id_List.concat(" ", String(response.data.results[i].id));
             }
             id_List = id_List.slice(1);
             ArrayIDs = id_List.split(" ");
@@ -121,8 +124,11 @@ function App() {
         });
         let idListClone = JSON.parse(JSON.stringify({idList}));
         console.log(idListClone.idList);
-        // console.log(getAllSteps(idListClone.idList[0]));
-        // Query the API to get a String of food IDs
+        // Loops through list of ids and prints steps in the console
+        for (let x = 0; x < idListClone.idList.length; x++) {
+            getAllSteps(idListClone.idList[x]);
+
+        }
     };
 
     return (
@@ -155,8 +161,8 @@ function App() {
                             <button onClick={handleSubmit}>Submit Recipe Info</button>
                         </div>
                     </form>
-                    <IngredientForm addIngredient={addIngredient}/>
-                    <IngredientToAddList ingredList = {ingredList}/>
+                    {/*<IngredientForm addIngredient={addIngredient}/>*/}
+                    {/*<IngredientToAddList ingredList = {ingredList}/>*/}
                 </div>
                 <div className = "input-container">
                     <div className ="input-steps">

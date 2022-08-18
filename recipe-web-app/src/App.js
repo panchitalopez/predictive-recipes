@@ -109,7 +109,9 @@ function App() {
 
         var id_List = "";
         var ArrayIDs;
-        // Query the API to get a String of food IDs
+        // Query the API to get a list of food items
+        // Extracts the ids into an array to be passed to anaylzed instructions endpoint
+        // Prints recipe url to console
         axios.request(query).then(function (response) {
             console.log(response.data.results);
             for (let i = 0; i < response.data.results.length; i++) {

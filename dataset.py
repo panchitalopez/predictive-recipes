@@ -3,6 +3,7 @@ import string
 import numpy as np
 import csv
 
+# This is the code used for filtering the Kaggle dataset. Along with this there was a lot of manual santization so code doesn't represent all data transformations.
 df = pd.read_csv('RecipeNLG_dataset.csv')
 # Reads dataset from file into DataFrame df
 

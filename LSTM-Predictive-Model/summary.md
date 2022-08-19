@@ -4,7 +4,7 @@ After our demo on Wednesday, we added more features to allow more of a personali
 Here, the user chose for the predictive word to be printed after 4 words. 
 You can see the words are transformed into sequences show in 5 parts: [ 1stword, 2ndword, 3rdword, 4thword, 5thword ] 
 
-![Number of Sequences](Number of Words to Sequence.jpeg) 
+![Words to Sequences:](No.Word_Seq.jpeg) 
 
 The selected numbers of layers for the LSTM layer was 1,000. 
 The selected number of epochs were 100 and the batch size was set to 32. 

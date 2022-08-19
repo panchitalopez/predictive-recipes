@@ -32,7 +32,7 @@ The results are also dependent on the sample file that the user puts in. If the 
 ___________________________________________________________________________________________________________________________________________________________
 
 How to run the predictive text model: 
-** Make sure to install the following libraries that we included in the beginning of predictivemodel.py file: Tensorflow, Keras, numpy, etc.** 
+**Make sure to install the following libraries that we included in the beginning of predictivemodel.py file: Tensorflow, Keras, numpy, etc.** 
 1) cd into LSTM-Predictive-Model directory
 2) Run: python3 predictivemodel.py 
 

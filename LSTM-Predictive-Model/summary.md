@@ -13,7 +13,7 @@ The selected number of epochs were 100 and the batch size was set to 32.
 As you can see, the initial loss value (this loss value is equivalalent the mean squared error for regression and the log loss for classification) 
 was quite high: 5.618. 
 
-![Epoch Results:]results/EpochResults.jpeg)
+![Epoch Results:](results/EpochResults.jpeg)
 
 After the 100 epochs of 32 batch size was run, it drastically decreased to 0.0557. 
 We also obtained a few almost completely accurate results: 
@@ -25,8 +25,5 @@ And also less accurate ones depending on the overall words entered into the prog
 ![Some less predictive results: ](results/PredictiveResults2.jpeg)
 
 The results are also dependent on the sample file that the user puts in. If the dataset was smaller and contained less diverse vocabulary, then the prediction would be more accurate. Thank you for reading and we hope you enjoyed! 
-
-
-
 
 

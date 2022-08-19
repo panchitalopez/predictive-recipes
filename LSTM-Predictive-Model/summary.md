@@ -1,4 +1,4 @@
-Our group set out to write a predictive text model for recipes using Natural Language Processing and Recurrent Neural Networks (LSTM architecture) that would predict the instructions of a typed recipe. 
+Our group set out to write a predictive text model for recipes using Natural Language Processing and Recurrent Neural Networks (LSTM architecture) that would predict the instructions of a typed recipe. This program can also be used for other predictive models. 
 
 
 After our demo on Wednesday, we added more features to allow more of a personalized experience for the user. This is an analyzation of the result of the script: 
@@ -29,4 +29,11 @@ And also less accurate ones depending on the overall words entered into the prog
 
 The results are also dependent on the sample file that the user puts in. If the dataset was smaller and contained less diverse vocabulary, then the prediction would be more accurate. Thank you for reading and we hope you enjoyed! 
 
+___________________________________________________________________________________________________________________________________________________________
 
+How to run the predictive text model: 
+** Make sure to install the following libraries that we included in the beginning of predictivemodel.py file: Tensorflow, Keras, numpy, etc.** 
+1) cd into LSTM-Predictive-Model directory
+2) Run: python3 predictivemodel.py 
+
+___________________________________________________________________________________________________________________________________________________________

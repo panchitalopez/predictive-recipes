@@ -24,7 +24,7 @@ And also less accurate ones depending on the overall words entered into the prog
 
 ![Some less predictive results: ](PredictiveResults2.jpeg)
 
-Thank you! 
+The results are also dependent on the sample file that the user puts in. If the dataset was smaller and contained less diverse vocabulary, then the prediction would be more accurate. Thank you for reading and we hope you enjoyed! 
 
 
 

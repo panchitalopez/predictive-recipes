@@ -1,4 +1,4 @@
-# This is the front-end portion of the project, it was created with React. 
+# This is the front-end portion of the project done by Orione Browne and Panchita Lopez-Li , it was created with React. 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

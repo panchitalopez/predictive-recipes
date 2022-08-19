@@ -1,3 +1,6 @@
+Our group set out to write a predictive text model for recipes using Natural Language Processing and Recurrent Neural Networks (LSTM architecture) that would predict the instructions of a typed recipe. 
+
+
 After our demo on Wednesday, we added more features to allow more of a personalized experience for the user. This is an analyzation of the result of the script: 
 Here, the user chose for the predictive word to be printed after 4 words. 
 You can see the words are transformed into sequences show in 5 parts: [ 1stword, 2ndword, 3rdword, 4thword, 5thword ] 
